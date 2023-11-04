@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::selection{
+    background: #22c558 !important; 
+    color: #ffffff;        /* WebKit/Blink Browsers */
+}
