@@ -8,7 +8,7 @@ function Localize() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -200 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: .5 }}
             className="text-center sm:mt-4 sm:mb-4"
         >
             <h1 className="text-3xl font-semibold my-4">Posições</h1>

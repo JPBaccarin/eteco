@@ -34,7 +34,7 @@ const Navbar = () => {
   };
   return (
     <motion.nav
-      className="bg-gray-300/20 backdrop-blur-md p-4 sticky top-0 shadow-sm z-50"
+      className="bg-gray-100/75 backdrop-blur-xl p-4 sticky top-0 shadow-sm z-50"
       initial="hidden"
       animate="visible"
       variants={navbarVariants}
@@ -57,13 +57,13 @@ const Navbar = () => {
         </Link>
         <div className="hidden md:flex space-x-4">
           <Link href="/informe">
-            <p className="text-gray-500 hover:text-black duration-150">Informe-se</p>
+            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Informe-se</p>
           </Link>
           <Link href="/localize">
-            <p className="text-gray-500 hover:text-black duration-150">Localize-se</p>
+            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Localize-se</p>
           </Link>
           <Link href="/sobre">
-            <p className="text-gray-500 hover:text-black duration-150">Sobre nós</p>
+            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Sobre nós</p>
           </Link>
         </div>
         {/* Ícone responsivo para menu mobile com clique */}
@@ -82,13 +82,13 @@ const Navbar = () => {
         className={`sm:hidden z-50 justify-around flex flex-row gap-2 text-center sm:mx-8 ${isMobileMenuOpen ? '' : 'bg-opacity-0'} `}
       >
         <Link href="/informe">
-          <p className="text-gray-500 hover:text-black duration-150 p-1 rounded-md border w-fit">Informe-se</p>
+          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Informe-se</p>
         </Link>
         <Link href="/localize">
-          <p className="text-gray-500 hover:text-black duration-150 p-1 rounded-md border w-fit">Localize-se</p>
+          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Localize-se</p>
         </Link>
         <Link href="/sobre">
-          <p className="text-gray-500 hover:text-black duration-150 p-1 rounded-md border w-fit">Sobre nós</p>
+          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Sobre nós</p>
         </Link>
       </motion.div>
     </motion.nav>

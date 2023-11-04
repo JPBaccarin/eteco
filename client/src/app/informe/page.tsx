@@ -22,7 +22,7 @@ const cardVariants: Variants = {
             duration: 0.5,
         },
     },
-}; console.log(process.env.API_KEY_NEWSAPI);
+};
 
 
 function NewsPage() {

@@ -8,12 +8,12 @@ import equipe from './equipe.jpg'
 const AboutUs = () => {
     const pageVariants = {
         initial: { opacity: 0 },
-        animate: { opacity: 1, transition: { duration: .8 } },
+        animate: { opacity: 1, transition: { duration: .5 } },
     };
 
     const textVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+        visible: { opacity: 1, y: 0, transition: { duration: .7 } },
     };
 
     const staggerChildren = 0.2;
