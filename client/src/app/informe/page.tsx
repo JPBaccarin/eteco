@@ -13,20 +13,38 @@ interface Article {
     urlToImage: string | null;
 }
 
+const loaderVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+};
+
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.5,
+            duration: 1,
         },
     },
 };
 
+function Loader() {
+    return (
+        <motion.div
+            className="flex items-center justify-center h-screen"
+            variants={loaderVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <p className="text-2xl italic font-semibold animate-pulse">Carregando...</p>
+        </motion.div>
+    );
+}
 
 function NewsPage() {
     const [articles, setArticles] = useState<Article[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchNews() {
@@ -38,11 +56,17 @@ function NewsPage() {
                 setArticles(response.data.articles);
             } catch (error) {
                 console.error("Erro ao buscar notícias:", error);
+            } finally {
+                setLoading(false);
             }
         }
 
         fetchNews();
     }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
 
     return (
         <div className="sm:px-6 p-0">
@@ -86,4 +110,4 @@ function NewsPage() {
     );
 }
 
-export default NewsPage;
+export default NewsPage;    

@@ -73,61 +73,57 @@ const App: React.FC = () => {
         </section>
 
         {/*texto */}
-        <section className=" mx-auto text-justify ">
+        {/* Container Flex para os Cards */}
+        <div className="container mx-auto pb-10 pt-2 flex justify-around flex-wrap">
+
+          {/* Seção de Notícias */}
           <motion.div
-            className="w-full p-4 "
+            className="w-full md:w-1/2 p-4"
             variants={fadeIn}
             initial="hidden"
             animate={inView2 ? "visible" : "hidden"}
             ref={ref2}
           >
-            <h2 className="text-3xl font-bold mb-4 underline decoration-dashed decoration-auto underline-offset-4"> Por um mundo melhor é preciso de todos </h2>
-            <img
-              src="https://i.pinimg.com/originals/d5/9f/0f/d59f0fc4f0e5a14e76a4b91cb409b988.jpg"
-              alt="Imagem do planeta Terra"
-              className=" w-full sm:w-1/2 sm:float-left sm:mb-8 sm:mr-8 rounded-md"
-            />.
-
-            <h2 className="text-2xl font-bold mb-4">O que é lixo eletrônico?</h2>
-
-            <p>Lixo eletrônico, também conhecido como resíduo eletrônico ou e-lixo, refere-se a todos os dispositivos eletrônicos descartados, não funcionais ou obsoletos. Isso abrange uma ampla variedade de produtos eletrônicos, desde telefones celulares e laptops até aparelhos domésticos, como geladeiras e máquinas de lavar. Com o rápido avanço da tecnologia, o ciclo de vida dos dispositivos eletrônicos está se tornando mais curto, levando a um aumento constante na quantidade de lixo eletrônico.</p>
-
-            <h3 className="text-xl font-bold mt-4">Principais tipos de lixo eletrônico incluem:</h3>
-            <ul className="list-disc list-inside pl-6">
-              <li>Computadores e laptops antigos</li>
-              <li>Celulares e smartphones quebrados ou desatualizados</li>
-              <li>Tablets e dispositivos similares</li>
-              <li>Televisões antigas e monitores</li>
-              <li>Periféricos de computador, como teclados e mouses</li>
-              <li>Eletrodomésticos, como geladeiras, máquinas de lavar e micro-ondas</li>
-              <li>Baterias recarregáveis</li>
-              <li>Equipamentos de escritório, como impressoras e scanners</li>
-            </ul>
-
-            <h3 className="text-xl font-bold mt-4">Impactos do lixo eletrônico:</h3>
-            <p className="text-lg mb-4">
-              O descarte inadequado de lixo eletrônico pode ter sérios impactos ambientais e de saúde. Muitos dispositivos eletrônicos contêm substâncias tóxicas, como mercúrio, chumbo, cádmio e materiais inflamáveis, que podem contaminar o solo e a água se forem descartados de maneira inadequada. Além disso, a reciclagem inadequada de eletrônicos desperdiça recursos valiosos e contribui para o esgotamento de recursos naturais.
-
-              Além dos impactos ambientais, o lixo eletrônico pode representar um risco para a saúde humana devido à exposição a produtos químicos tóxicos. Trabalhadores que lidam com o descarte de eletrônicos sem proteção adequada estão sujeitos a problemas de saúde, como intoxicação por chumbo e problemas respiratórios.
-
-              A reciclagem apropriada e o descarte responsável de lixo eletrônico são essenciais para mitigar esses impactos negativos e promover a sustentabilidade.
-            </p>
-
-            <h3 className="text-xl font-bold mt-4">Como descartar lixo eletrônico corretamente:</h3>
-            <p className="text-lg mb-4">
-              Para descartar lixo eletrônico de forma responsável, siga estas diretrizes:
-
-              <ul className="list-disc list-inside pl-6">
-                <li>Procure pontos de coleta de reciclagem eletrônica em sua região. Muitas cidades e empresas oferecem programas de reciclagem de eletrônicos onde você pode entregar seus dispositivos antigos.</li>
-                <li>Certifique-se de apagar todos os dados pessoais antes de descartar qualquer dispositivo. Faça cópias de segurança de informações importantes e, em seguida, restaure as configurações de fábrica ou formate os dispositivos.</li>
-                <li>Evite jogar eletrônicos no lixo comum, onde podem acabar em aterros sanitários e contaminar o meio ambiente. Em vez disso, opte pela reciclagem apropriada.</li>
-                <li>Considere a doação de dispositivos eletrônicos ainda funcionais para instituições de caridade ou escolas, promovendo a reutilização em vez do descarte.</li>
-              </ul>
-
-              A conscientização sobre os impactos do lixo eletrônico e a adoção de práticas responsáveis de descarte são fundamentais para proteger o meio ambiente, preservar os recursos naturais e garantir um futuro mais sustentável.
-            </p>
+            <div className="bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
+              <h2 className="text-3xl font-bold mb-4">
+                Fique Atualizado com as Últimas Notícias
+              </h2>
+              <p className="text-lg mb-4">
+                Acompanhe as notícias mais recentes sobre <b className='font-semibold'>sustentabilidade,  ciência, tecnologia, reciclagem e meio ambiente</b>. Mantenha-se informado para contribuir ativamente para um ambiente mais saudável.
+              </p>
+              <div className="flex justify-center items-center">
+                <a href="/informe" className='inline-block p-4 rounded-lg border bg-green-500 text-white hover:bg-green-700 transition-all duration-300 focus:outline-none focus:ring focus:border-green-300'>
+                  Ir para as notícias
+                </a>
+              </div>
+            </div>
           </motion.div>
-        </section>
+
+          {/* Seção de Localização (Mapa) */}
+          <motion.div
+            className="w-full md:w-1/2 p-4"
+            variants={fadeIn}
+            initial="hidden"
+            animate={inView2 ? "visible" : "hidden"}
+            ref={ref2}
+          >
+            <div className="bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
+              <h2 className="text-3xl font-bold mb-4">
+                Encontre Ecopontos em Sua Região
+              </h2>
+              <p className="text-lg mb-4">
+                Utilize nosso <b className='font-semibold'>mapa interativo</b> para localizar os ecopontos mais próximos de você. Facilitamos o processo de descarte ambiental correto, ajudando você a contribuir para um futuro mais sustentável.
+              </p>
+              <div className="flex justify-center items-center">
+                <a href="/localize" className='inline-block p-4 rounded-lg border bg-green-500 text-white hover:bg-green-700 transition-all duration-300 focus:outline-none focus:ring focus:border-green-300'>
+                  Ir para o mapa
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+
       </main>
     </div >
   );

@@ -57,19 +57,19 @@ const Navbar = () => {
         </Link>
         <div className="hidden md:flex space-x-4">
           <Link href="/informe">
-            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Informe-se</p>
+            <p className="text-gray-500 hover:border-black/20 p-1 rounded-md bg-gray-100 border duration-150 hover:text-black ">Informe-se</p>
           </Link>
           <Link href="/localize">
-            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Localize-se</p>
+            <p className="text-gray-500 hover:border-black/20 p-1 rounded-md bg-gray-100 border duration-150 hover:text-black ">Localize-se</p>
           </Link>
           <Link href="/sobre">
-            <p className="text-gray-500 p-1 rounded-md bg-gray-100 border back hover:text-black duration-150">Sobre nós</p>
+            <p className="text-gray-500 hover:border-black/20 p-1 rounded-md bg-gray-100 border duration-150 hover:text-black ">Sobre nós</p>
           </Link>
         </div>
         {/* Ícone responsivo para menu mobile com clique */}
         <div className="md:hidden">
           <FiMenu
-            className="text-2xl text-gray-500 cursor-pointer duration-150 active:text-black"
+            className="text-2xl text-gray-500 hover:border-black/20 cursor-pointer duration-150 active:text-black"
             onClick={toggleMobileMenu}
           />
         </div>
@@ -82,13 +82,13 @@ const Navbar = () => {
         className={`sm:hidden z-50 justify-around flex flex-row gap-2 text-center sm:mx-8 ${isMobileMenuOpen ? '' : 'bg-opacity-0'} `}
       >
         <Link href="/informe">
-          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Informe-se</p>
+          <p className="mt-2 text-gray-500 hover:border-black/20 bg-gray-100 hover:text-black duration-150 p-1 rounded-md border w-fit">Informe-se</p>
         </Link>
         <Link href="/localize">
-          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Localize-se</p>
+          <p className="mt-2 text-gray-500 hover:border-black/20 bg-gray-100 hover:text-black duration-150 p-1 rounded-md border w-fit">Localize-se</p>
         </Link>
         <Link href="/sobre">
-          <p className="mt-2 text-gray-500 bg-gray-100 back hover:text-black duration-150 p-1 rounded-md border w-fit">Sobre nós</p>
+          <p className="mt-2 text-gray-500 hover:border-black/20 bg-gray-100 hover:text-black duration-150 p-1 rounded-md border w-fit">Sobre nós</p>
         </Link>
       </motion.div>
     </motion.nav>
