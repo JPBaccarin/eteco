@@ -83,7 +83,7 @@ function NewsPage() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: .5, delay: index * 0.2 }}
-                            className="border hover:border-black/20 duration-150 hover:bg-gray-100/10 border-black/10 rounded-lg p-4 shadow-sm hover:shadow-md bg-zinc-100"
+                            className="border hover:border-black/20 duration-150 hover:bg-gray-100/10 border-black/10 rounded-lg p-4 shadow-sm hover:shadow-md bg-gray-50"
                         >
                             <h2 className="text-xl font-semibold border-b border-black/10 pb-2">{article.title}</h2>
                             {article.urlToImage && (
@@ -100,7 +100,7 @@ function NewsPage() {
                                 rel="noopener noreferrer"
                                 className="text-blue-500 hover:underline block mt-2 transition-all duration-150"
                             >
-                                Leia mais
+                                Ler mais
                             </a>
                         </motion.div>
                     ))}

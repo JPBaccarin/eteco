@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 
     return (
         <motion.footer
-            className=" text-gray-800 p-4 bg-gradient-to-t from-gray-200 to-gray-50 text-center mt-8 transition-all"
+            className=" text-gray-800 p-4 bg-gradient-to-t from-gray-200 to-gray-100 text-center  transition-all"
             variants={fadeIn}
             initial="hidden"
             animate="visible"

@@ -25,7 +25,7 @@ const App: React.FC = () => {
   return (
     <div>
 
-      <main className="bg-gray-100">
+      <main className="pb-4">
         {/*lampada */}
         <section className="container mx-auto py-10 flex justify-around flex-wrap">
           <motion.div
@@ -74,7 +74,7 @@ const App: React.FC = () => {
 
         {/*texto */}
         {/* Container Flex para os Cards */}
-        <div className="container mx-auto pb-10 pt-2 flex justify-around flex-wrap">
+        <div className="container mx-auto pb-10 pt-2 flex justify-around flex-wrap ">
 
           {/* Seção de Notícias */}
           <motion.div
@@ -84,7 +84,7 @@ const App: React.FC = () => {
             animate={inView2 ? "visible" : "hidden"}
             ref={ref2}
           >
-            <div className="bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
+            <div className="bg-gray-50/50 hover:bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
               <h2 className="text-3xl font-bold mb-4">
                 Fique Atualizado com as Últimas Notícias
               </h2>
@@ -107,7 +107,7 @@ const App: React.FC = () => {
             animate={inView2 ? "visible" : "hidden"}
             ref={ref2}
           >
-            <div className="bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
+            <div className="bg-gray-50/50 hover:bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
               <h2 className="text-3xl font-bold mb-4">
                 Encontre Ecopontos em Sua Região
               </h2>
