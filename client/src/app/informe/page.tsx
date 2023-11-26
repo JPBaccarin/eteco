@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 const apiKey = process.env.API_KEY_NEWSAPI;
 
@@ -45,6 +44,7 @@ function Loader() {
 function NewsPage() {
     const [articles, setArticles] = useState<Article[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function fetchNews() {
@@ -56,6 +56,7 @@ function NewsPage() {
                 setArticles(response.data.articles);
             } catch (error) {
                 console.error("Erro ao buscar notícias:", error);
+                setError("Erro ao buscar notícias :(");
             } finally {
                 setLoading(false);
             }
@@ -70,9 +71,20 @@ function NewsPage() {
 
     return (
         <div className="sm:px-6 p-0">
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-2xl m-2 font-bold">
-                Notícias sobre Meio Ambiente, Tecnologia e Ciência:
-            </motion.h1>
+            {loading && <Loader />}
+
+            {!loading && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-2xl m-2 font-bold">
+                    Notícias sobre Meio Ambiente, Tecnologia e Ciência:
+                </motion.div>
+            )}
+            {error && (
+                <div className="h-screen flex justify-center items-center">
+                    <p className="text-red-500  p-2 text-center font-mono font-bold animate-bounce text-lg mb-4">
+                        {error}
+                    </p>
+                </div>
+            )}
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 p-4">
                 <AnimatePresence>
@@ -110,4 +122,4 @@ function NewsPage() {
     );
 }
 
-export default NewsPage;    
+export default NewsPage;
