@@ -73,7 +73,7 @@ function NewsPage() {
         <div className="sm:px-6 p-0">
             {loading && <Loader />}
 
-            {!loading && (
+            {!loading && !error && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-2xl m-2 font-bold">
                     Notícias sobre Meio Ambiente, Tecnologia e Ciência:
                 </motion.div>
