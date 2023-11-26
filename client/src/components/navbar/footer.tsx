@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Footer: React.FC = () => {
     const fadeIn = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { delay: 1.5 } }, // Adicionando um atraso 
+        visible: { opacity: 1, transition: { delay: 1.6 } }, // Adicionando um atraso 
     };
 
     return (
