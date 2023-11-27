@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { GeistSans } from 'geist/font'
 import Navbar from '@/components/navbar/navbar'
+import Footer from '@/components/navbar/footer'
 
 export const metadata: Metadata = {
   title: "ecopontos",
@@ -19,7 +20,10 @@ export default function RootLayout({
       <body className={GeistSans.className}>
         <Navbar></Navbar>
 
-        {children}</body>
+        {children}
+        <Footer></Footer>
+        
+        </body>
     </html>
   )
 }

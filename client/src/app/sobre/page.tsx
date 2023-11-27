@@ -62,7 +62,7 @@ const AboutUs = () => {
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
-                className="mt-8 p-4 bg-gray-200 rounded-lg"
+                className="mt-8 p-4 bg-gray-100 rounded-lg border"
             >
                 <h2 className="text-2xl font-semibold mb-2">Contato</h2>
                 <motion.p
