@@ -1,3 +1,3 @@
-import logo from "./logo.jpeg"
+import logo from "./logo.svg"
 export default logo
 

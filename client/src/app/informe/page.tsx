@@ -79,10 +79,13 @@ function NewsPage() {
                 </motion.div>
             )}
             {error && (
-                <div className="h-screen flex justify-center items-center">
+                <div className="h-screen flex justify-center items-center flex-col">
                     <p className="text-red-500  p-2 text-center font-mono font-bold animate-bounce text-lg mb-4">
                         {error}
                     </p>
+                    <div className="text-center">
+                        <sub className="font-mono">Enquanto arrumamos o problema, acesse as notícias diretamente no site da <a target="blank" href="https://www.leme.sp.gov.br/noticias/categoria/meio-ambiente" className="text-blue-500 font-bold hover:underline"> prefeitura</a>.</sub>
+                    </div>
                 </div>
             )}
 

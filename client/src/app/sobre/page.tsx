@@ -53,9 +53,9 @@ const AboutUs = () => {
             >
                 Para saber mais sobre nossas atividades e iniciativas, entre em contato conosco. Estamos comprometidos em promover a conscientização e ação ambiental.
             </motion.p>
-            <motion.image className="flex justify-center" >
+            <motion.div className="flex justify-center" >
                 <Image alt='foto da equipe' className='rounded-xl sm:w-2/3 m-2 shadow-sm hover:shadow-xl duration-300 border hover:grayscale-0 grayscale ' src={equipe} width={2000} height={2000}></Image>
-            </motion.image>
+            </motion.div>
 
             {/* Seção de Contato com animações e staggering */}
             <motion.section
