@@ -9,7 +9,7 @@ function Localize() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -200 }}
             transition={{ duration: .5 }}
-            className="text-center sm:mt-4 sm:mb-4"
+            className="text-center sm:mt-4 sm:mb-4 min-h-screen"
         >
             <h1 className="text-3xl font-semibold my-4">Posições</h1>
             <div className=" text-center">

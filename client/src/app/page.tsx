@@ -66,28 +66,6 @@ const App: React.FC = () => {
         {/*texto */}
         {/* Container Flex para os Cards */}
         <div className="container mx-auto pb-10 pt-2 flex justify-around flex-wrap ">
-          {/* Seção de Notícias */}
-          <motion.div
-            className="w-full md:w-1/2 p-4"
-            variants={fadeIn}
-            initial="hidden"
-            animate={inView2 ? "visible" : "hidden"}
-            ref={ref2}
-          >
-            <div className="bg-gray-50/50 hover:bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
-              <h2 className="text-3xl font-bold mb-4">
-                Fique Atualizado com as Últimas Notícias da Cidade
-              </h2>
-              <p className="text-lg mb-4">
-                Mantenha-se atualizado com as  últimas <b className='font-bold' >notícias sobre o meio ambiente em Leme</b>. Descubra iniciativas locais, projetos de sustentabilidade e eventos relacionados ao cuidado com a natureza e a reciclagem.
-              </p>
-              <div className="flex justify-center items-center">
-                <a href="/informe" className='inline-block p-4 rounded-lg border bg-green-500 text-white hover:bg-green-700 transition-all duration-300 focus:outline-none focus:ring focus:border-green-300'>
-                  Ir para as notícias
-                </a>
-              </div>
-            </div>
-          </motion.div>
 
           {/* Seção de Localização (Mapa) */}
           <motion.div
@@ -111,6 +89,30 @@ const App: React.FC = () => {
               </div>
             </div>
           </motion.div>
+          {/* Seção de Notícias */}
+          <motion.div
+            className="w-full md:w-1/2 p-4"
+            variants={fadeIn}
+            initial="hidden"
+            animate={inView2 ? "visible" : "hidden"}
+            ref={ref2}
+          >
+            <div className="bg-gray-50/50 hover:bg-white p-6 rounded-xl shadow-md duration-300 hover:shadow-xl border h-full">
+              <h2 className="text-3xl font-bold mb-4">
+                Fique Atualizado com as Últimas Notícias da Cidade
+              </h2>
+              <p className="text-lg mb-4">
+                Mantenha-se atualizado com as  últimas <b className='font-bold' >notícias sobre o meio ambiente em Leme</b>. Descubra iniciativas locais, projetos de sustentabilidade e eventos relacionados ao cuidado com a natureza e a reciclagem.
+              </p>
+              <div className="flex justify-center items-center">
+                <a href="/informe" className='inline-block p-4 rounded-lg border bg-green-500 text-white hover:bg-green-700 transition-all duration-300 focus:outline-none focus:ring focus:border-green-300'>
+                  Ir para as notícias
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+
 
         </div>
       </main>
