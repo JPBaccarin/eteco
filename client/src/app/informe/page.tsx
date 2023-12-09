@@ -34,7 +34,6 @@ function getCategoryColor(category: string): string {
     switch (category) {
         case "MEIO AMBIENTE":
             return "bg-green-500";
-        // Adicione mais casos para outras categorias, se necessário
         default:
             return "bg-gray-500";
     }
@@ -54,15 +53,12 @@ function Loader() {
 }
 
 function NewsPage() {
-    const [articles, setArticles] = useState<Article[]>(newsData); // Alterado para usar o JSON importado
+    const [articles, setArticles] = useState<Article[]>(newsData);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
     useEffect(() => {
-        // Não é mais necessário o fetch aqui
-
-        // Você pode adicionar lógica de carregamento adicional se necessário
-
         setLoading(false);
     }, []);
 
@@ -103,21 +99,25 @@ function NewsPage() {
                         >
                             <h2 className="text-xl font-semibold border-b border-black/10 pb-2">{article.title}</h2>
                             {article.imageUrl && (
-                                <div className="relative">
+                                <div className="relative group">
                                     <img
                                         src={article.imageUrl}
                                         alt={article.title}
                                         className="w-full h-48 object-cover object-center mt-4 mb-4 rounded-lg"
                                     />
-                                    <div className={`absolute top-0 right-0 p-2 border border-black/10 rounded-br-none  rounded-lg ${getCategoryColor(article.categories[0])} text-white text-xs font-bold `}>
+                                    <div className={`absolute top-0 right-0 p-2 border border-black/10 rounded-br-none rounded-lg ${getCategoryColor(article.categories[0])} text-white text-xs font-bold`}>
                                         {article.categories[0]}
                                     </div>
+                                    {article.categories.length > 1 && (
+                                        <div className={`absolute top-9 right-0 transition-opacity duration-100 p-1 border border-black/10  rounded-l-lg bg-white  text-gray-800 text font-bold hidden group-hover:flex flex-col text-xs`}>
+                                            {article.categories.slice(1).map((category, catIndex) => (
+                                                <div key={catIndex}>{category}</div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             )}
                             <p className="text-gray-700  line-clamp-2 text-justify">{article.description}</p>
-                            <div className="flex mt-2">
-
-                            </div>
                             <a
                                 href={article.link}
                                 target="_blank"
@@ -132,7 +132,8 @@ function NewsPage() {
             </div>
         </div>
     );
-}
 
+
+}
 
 export default NewsPage;
