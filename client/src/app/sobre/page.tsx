@@ -33,7 +33,7 @@ const AboutUs = () => {
                 animate="visible"
                 className="text-lg leading-7 text-gray-700"
             >
-                Somos alunos do 1° ano do ensino médio integrado com técnico de Desenvolvimento de Sistemas da ETEC Deputado Salim Sedeh, localizada em Leme, no interior do estado de São Paulo. Estamos envolvidos em um projeto com nossos professores para criar um site que orienta e auxilia as pessoas no descarte adequado do E-LIXO, com o objetivo de preservar o meio ambiente e a saúde.
+                Somos alunos do 2° ano do ensino médio integrado com técnico de Desenvolvimento de Sistemas da ETEC Deputado Salim Sedeh, localizada em Leme, no interior do estado de São Paulo. Estamos envolvidos em um projeto com nossos professores para criar um site que orienta e auxilia as pessoas no descarte adequado do E-LIXO, com o objetivo de preservar o meio ambiente e a saúde.
             </motion.p>
 
             <motion.p
