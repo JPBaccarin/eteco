@@ -1,15 +1,16 @@
+// Importa os estilos do Tailwind CSS
 'use client'
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-
-const apiKey = process.env.API_KEY_NEWSAPI;
+import newsData from "./news_data.json"; // Atualize o caminho conforme necessário
 
 interface Article {
     title: string;
     description: string;
-    url: string;
-    urlToImage: string | null;
+    date: string;
+    imageUrl: string | null;
+    categories: string[];
+    link: string;
 }
 
 const loaderVariants: Variants = {
@@ -28,6 +29,16 @@ const cardVariants: Variants = {
     },
 };
 
+// Função para obter a cor de acordo com a categoria
+function getCategoryColor(category: string): string {
+    switch (category) {
+        case "MEIO AMBIENTE":
+            return "bg-green-500";
+        default:
+            return "bg-gray-500";
+    }
+}
+
 function Loader() {
     return (
         <motion.div
@@ -42,27 +53,13 @@ function Loader() {
 }
 
 function NewsPage() {
-    const [articles, setArticles] = useState<Article[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [articles, setArticles] = useState<Article[]>(newsData);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
     useEffect(() => {
-        async function fetchNews() {
-            try {
-                const response = await axios.get(
-                    `https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=${apiKey}`
-                );
-
-                setArticles(response.data.articles);
-            } catch (error) {
-                console.error("Erro ao buscar notícias:", error);
-                setError("Erro ao buscar notícias :(");
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        fetchNews();
+        setLoading(false);
     }, []);
 
     if (loading) {
@@ -75,7 +72,7 @@ function NewsPage() {
 
             {!loading && !error && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-2xl m-2 font-bold">
-                    Notícias sobre Meio Ambiente, Tecnologia e Ciência:
+                    Notícias sobre Meio Ambiente de Leme:
                 </motion.div>
             )}
             {error && (
@@ -98,19 +95,31 @@ function NewsPage() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: .5, delay: index * 0.2 }}
-                            className="border hover:border-black/20 duration-150 hover:bg-gray-100/10 border-black/10 rounded-lg p-4 shadow-sm hover:shadow-md bg-gray-50"
+                            className="first-letter:relative border hover:border-black/20 duration-150 hover:bg-gray-100/10 border-black/10 rounded-lg p-4 shadow-sm hover:shadow-md bg-gray-50"
                         >
                             <h2 className="text-xl font-semibold border-b border-black/10 pb-2">{article.title}</h2>
-                            {article.urlToImage && (
-                                <img
-                                    src={article.urlToImage}
-                                    alt={article.title}
-                                    className="w-full h-48 object-cover object-center mt-4 mb-4 rounded-lg"
-                                />
+                            {article.imageUrl && (
+                                <div className="relative group">
+                                    <img
+                                        src={article.imageUrl}
+                                        alt={article.title}
+                                        className="w-full h-48 object-cover object-center mt-4 mb-4 rounded-lg"
+                                    />
+                                    <div className={`absolute top-0 right-0 p-2 border border-black/10 rounded-br-none rounded-lg ${getCategoryColor(article.categories[0])} text-white text-xs font-bold`}>
+                                        {article.categories[0]}
+                                    </div>
+                                    {article.categories.length > 1 && (
+                                        <div className={`absolute top-9 right-0 transition-opacity duration-100 p-1 border border-black/10  rounded-l-lg bg-white  text-gray-800 text font-bold hidden group-hover:flex flex-col text-xs`}>
+                                            {article.categories.slice(1).map((category, catIndex) => (
+                                                <div key={catIndex}>{category}</div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             )}
-                            <p className="text-gray-700  line-clamp-3 text-justify">{article.description}</p>
+                            <p className="text-gray-700  line-clamp-2 text-justify">{article.description}</p>
                             <a
-                                href={article.url}
+                                href={article.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-500 hover:underline block mt-2 transition-all duration-150"
@@ -123,6 +132,8 @@ function NewsPage() {
             </div>
         </div>
     );
+
+
 }
 
 export default NewsPage;
